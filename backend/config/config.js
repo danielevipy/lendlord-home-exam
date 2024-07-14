@@ -1,37 +1,38 @@
-const path = require('path')
-const logDirPath = path.join(__dirname, '/../logs/')
-const logPath = path.join(logDirPath, 'app.log')
-const { statSync, mkdirSync, writeFileSync } = require('fs')
-const bunyan = require('bunyan')
-const { merge } = require('lodash')
+const path = require('path');
+const logDirPath = path.join(__dirname, '/../logs/');
+const logPath = path.join(logDirPath, 'app.log');
+const { statSync, mkdirSync, writeFileSync } = require('fs');
+const bunyan = require('bunyan');
+const { merge } = require('lodash');
 
 try {
-  statSync(logPath)
+  statSync(logPath);
 } catch (err) {
-  mkdirSync(logDirPath)
-  writeFileSync(logPath, '')
+  mkdirSync(logDirPath);
+  writeFileSync(logPath, '');
 }
 
 global.log = bunyan.createLogger({
   name: 'ex4Broker',
   level: 'info',
   serializers: bunyan.stdSerializers,
-  streams: [{ path: logPath }, { stream: process.stdout, color: 'blue' }]
-})
+  streams: [{ path: logPath }, { stream: process.stdout, color: 'blue' }],
+});
 
 var config = {
   default: {
-    database: '',
+    database:
+      'mongodb+srv://danielevi:131290Daniel@landlord.ulzelbw.mongodb.net/?retryWrites=true&w=majority&appName=landlord',
     appUrl: 'http://localhost:3002',
     ports: {
-      app: 3000
+      app: 5005,
     },
-  }
-}
+  },
+};
 
 exports.get = function get(env) {
-  const obj = {}
-  merge(obj, config.default)
-  merge(obj, config[env] || {})
-  return obj
-}
+  const obj = {};
+  merge(obj, config.default);
+  merge(obj, config[env] || {});
+  return obj;
+};
