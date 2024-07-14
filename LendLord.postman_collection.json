@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "83a4b583-1c08-44f3-9042-9c85aeb2c668",
+		"name": "LendLord",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "21841665"
+	},
+	"item": [
+		{
+			"name": "GetAllUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:5005/users"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"firstName\": \"\",\n        \"lastName\": \"\",\n        \"email\": \"\",\n        \"dateStarted\": \"2024-07-26T00:00:00.000Z\",\n        \"salary\": ,\n        \"role\": \"\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5005/user"
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserByID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:5005/user/669399bd3a9b378d329c8d53"
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"firstName\": \"test\",\n        \"lastName\": \"tres\",\n        \"email\": \"test@d.co\",\n        \"dateStarted\": \"2024-07-26T00:00:00.000Z\",\n        \"salary\": 23253,\n        \"role\": \"Driver\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5005/user/6693aa9831a1c46e90f5dfff"
+			},
+			"response": []
+		},
+		{
+			"name": "getEmployeesByManager",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:5005/manager/66939bcbd39a33b1a625cb12/employees"
+			},
+			"response": []
+		},
+		{
+			"name": "addEmployeeToManager",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": "http://localhost:5005/manager/66939bcbd39a31b1a625cb12/employee/66939c6fd39a31b1a625cb1d"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:5005/user/6693ac4e31a1c46e90f5e00a"
+			},
+			"response": []
+		}
+	]
+}
